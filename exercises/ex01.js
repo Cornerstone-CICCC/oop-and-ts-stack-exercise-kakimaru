@@ -4,8 +4,24 @@
 
 const Stack = require('../lib/Stack')
 
+// orig: [5, 8, 1, 3, 6]
+// temp: []
+// curr: 6
+
 function removeEvenNums(stack) {
   // your code here
+  const tempStack = new Stack()
+  
+  while(!stack.isEmpty()) {
+    let currOrig = stack.pop()
+    if(currOrig % 2 !== 0) {
+      tempStack.push(currOrig)
+    }
+  }
+
+  while(!tempStack.isEmpty()) {
+    stack.push(tempStack.pop())
+  }
 }
 
 // Create stack
